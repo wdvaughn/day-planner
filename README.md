@@ -14,3 +14,4 @@ Here is what the day planner looks like on startup.
 ## Plans Made
 
 
+![image](./Day-Planner-in-Use.png)
