@@ -9,18 +9,15 @@ var hour4 = $("#16");
 var hour5 = $("#17");
 var time = moment();
 
-function setPlanner()
-{
-    
+function setPlanner() {
+
     $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
-    $(".time-block").each(function()
-    {
+    $(".time-block").each(function () {
         var id = $(this).attr("id");
         var schedule = localStorage.getItem(id);
 
-        if (schedule !== null)
-        {
+        if (schedule !== null) {
             $(this).children(".schedule").val(schedule);
         }
     });
@@ -29,31 +26,25 @@ function setPlanner()
 setPlanner();
 var saveBtn = $(".saveBtn");
 
-saveBtn.on("click", function()
-{
+saveBtn.on("click", function () {
     var time = $(this).parent().attr("id");
     var schedule = $(this).siblings(".schedule").val();
 
     localStorage.setItem(time, schedule);
 });
 
-function pastPresentFuture()
-{
+function pastPresentFuture() {
     hour = time.hours();
-    $(".time-block").each(function()
-    {
+    $(".time-block").each(function () {
         var thisHour = parseInt($(this).attr("id"));
-        
-        if (thisHour > hour)
-        {
+
+        if (thisHour > hour) {
             $(this).addClass("future")
         }
-        else if (thisHour === hour)
-        {
+        else if (thisHour === hour) {
             $(this).addClass("present");
         }
-        else
-        {
+        else {
             $(this).addClass("past");
         }
     })
